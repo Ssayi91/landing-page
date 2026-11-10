@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singita Skincare — Natural Care. Radiant You.</title>
+    <meta name="description" content="Singita Skincare — Artisanal, natural skincare crafted from ethically sourced botanicals. Discover our collection.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-deep: #0a0f0c;
+            --color-surface: #111a14;
+            --color-ink: #e8ede9;
+            --color-cream: #f5f3ef;
+            --color-accent: #c9a96e;
+            --color-sage: #7a8b6f;
+            --color-sage-dark: #5a6b50;
+            --font-main: 'Montserrat', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --transition: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-main);
+            font-weight: 400;
+            background-color: var(--color-cream);
+            color: var(--color-deep);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 3px;
+            background: linear-gradient(90deg, var(--color-sage), var(--color-accent));
+            z-index: 10000; transition: width 0.1s ease;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 1.25rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: rgba(245, 243, 239, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(10, 15, 12, 0.05);
+            transition: all 0.4s var(--transition);
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem; font-weight: 600;
+            color: var(--color-deep);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span { color: var(--color-sage); }
+
+        .nav-links {
+            display: flex; gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem; font-weight: 500;
+            color: var(--color-deep);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: ''; position: absolute;
+            bottom: 0; left: 0; width: 0; height: 1px;
+            background: var(--color-sage);
+            transition: width 0.3s var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--color-sage); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            padding: 0.6rem 1.5rem;
+            background: var(--color-deep);
+            color: var(--color-cream);
+            border-radius: 100px;
+            font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--color-sage);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+        .nav-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: var(--color-deep); margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex; align-items: center;
+            overflow: hidden;
+            background: var(--color-cream);
+        }
+
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 1200px; margin: 0 auto;
+            padding: 8rem 3rem 4rem;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: center;
+        }
+
+        .hero-text .label {
+            font-size: 0.75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.2em;
+            color: var(--color-sage);
+            margin-bottom: 1.5rem; display: block;
+        }
+
+        .hero-text h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 em {
+            font-style: italic;
+            color: var(--color-sage);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: rgba(10, 15, 12, 0.7);
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-family: var(--font-main);
+            font-size: 0.85rem; font-weight: 600;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.3s var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--color-deep);
+            color: var(--color-cream);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-sage);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(122, 139, 111, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-deep);
+            border-color: var(--color-deep);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-deep);
+            color: var(--color-cream);
+        }
+
+        .hero-visual {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(10, 15, 12, 0.15);
+            aspect-ratio: 4/5;
+        }
+
+        .hero-visual img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s var(--transition);
+        }
+
+        .hero-visual:hover img { transform: scale(1.05); }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem; left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem; font-weight: 500;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-deep);
+            display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .hero-scroll::after {
+            content: ''; width: 1px; height: 40px;
+            background: var(--color-deep);
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollLine {
+            0%, 100% { transform: scaleY(0); transform-origin: top; }
+            50% { transform: scaleY(1); transform-origin: top; }
+        }
+
+        /* Section Base */
+        section {
+            position: relative;
+            padding: 8rem 3rem;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-header .label {
+            font-size: 0.75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.2em;
+            color: var(--color-sage);
+            margin-bottom: 1rem; display: block;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: rgba(10, 15, 12, 0.7);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--color-deep);
+            color: var(--color-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-bg {
+            position: absolute; inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1470165301023-58dab8118cc9?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.08;
+        }
+
+        .about .section-header h2 { color: var(--color-cream); }
+        .about .section-header p { color: rgba(232, 237, 233, 0.7); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative; z-index: 2;
+        }
+
+        .about-card {
+            background: rgba(232, 237, 233, 0.03);
+            border: 1px solid rgba(232, 237, 233, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s var(--transition);
+        }
+
+        .about-card:hover {
+            background: rgba(232, 237, 233, 0.06);
+            border-color: var(--color-sage);
+            transform: translateY(-8px);
+        }
+
+        .about-icon {
+            width: 56px; height: 56px;
+            background: var(--color-sage);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .about-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--color-cream);
+        }
+
+        .about-card p {
+            font-size: 0.95rem;
+            color: rgba(232, 237, 233, 0.7);
+            line-height: 1.7;
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--color-cream);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(10, 15, 12, 0.06);
+            transition: all 0.4s var(--transition);
+            display: flex; flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(10, 15, 12, 0.12);
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: var(--color-cream);
+        }
+
+        .product-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--transition);
+        }
+
+        .product-card:hover .product-image img { transform: scale(1.08); }
+
+        .product-badge {
+            position: absolute; top: 1rem; left: 1rem;
+            padding: 0.4rem 0.9rem;
+            background: var(--color-deep);
+            color: var(--color-cream);
+            font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            border-radius: 100px;
+        }
+
+        .product-info {
+            padding: 1.75rem;
+            flex-grow: 1;
+            display: flex; flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 0.7rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--color-sage);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--color-deep);
+        }
+
+        .product-info p {
+            font-size: 0.9rem;
+            color: rgba(10, 15, 12, 0.65);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(10, 15, 12, 0.08);
+        }
+
+        .product-price {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-deep);
+        }
+
+        .btn-whatsapp {
+            padding: 0.6rem 1.25rem;
+            background: #25D366;
+            color: white;
+            border-radius: 100px;
+            font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            transition: all 0.3s var(--transition);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp svg { width: 14px; height: 14px; }
+
+        /* Parallax Banner */
+        .parallax-banner {
+            height: 60vh;
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        .parallax-banner-bg {
+            position: absolute; inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1570194065650-d99fb4b38b17?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .parallax-banner::after {
+            content: ''; position: absolute; inset: 0;
+            background: rgba(10, 15, 12, 0.5);
+        }
+
+        .parallax-content {
+            position: relative; z-index: 2;
+            text-align: center;
+            color: var(--color-cream);
+            max-width: 700px;
+            padding: 0 2rem;
+        }
+
+        .parallax-content .label {
+            font-size: 0.75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.2em;
+            color: var(--color-accent);
+            margin-bottom: 1rem; display: block;
+        }
+
+        .parallax-content h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .parallax-content p {
+            font-size: 1.05rem;
+            color: rgba(232, 237, 233, 0.85);
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--color-surface);
+            color: var(--color-cream);
+        }
+
+        .contact .section-header h2 { color: var(--color-cream); }
+        .contact .section-header p { color: rgba(232, 237, 233, 0.7); }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: rgba(232, 237, 233, 0.75);
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details li {
+            padding: 0.75rem 0;
+            display: flex; align-items: center; gap: 1rem;
+            font-size: 0.95rem;
+            color: rgba(232, 237, 233, 0.85);
+        }
+
+        .contact-details svg {
+            width: 20px; height: 20px;
+            color: var(--color-sage);
+            flex-shrink: 0;
+        }
+
+        .contact-visual {
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-visual img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-deep);
+            color: var(--color-cream);
+            padding: 5rem 3rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(232, 237, 233, 0.1);
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h3 span { color: var(--color-sage); }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            color: rgba(232, 237, 233, 0.65);
+            margin-bottom: 1.5rem;
+            max-width: 320px;
+        }
+
+        .footer-social {
+            display: flex; gap: 0.75rem;
+        }
+
+        .footer-social a {
+            width: 40px; height: 40px;
+            background: rgba(232, 237, 233, 0.08);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--color-cream);
+            text-decoration: none;
+            transition: all 0.3s var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--color-sage);
+            transform: translateY(-3px);
+        }
+
+        .footer-social svg { width: 18px; height: 18px; }
+
+        .footer-col h4 {
+            font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col li { margin-bottom: 0.75rem; }
+
+        .footer-col a {
+            font-size: 0.9rem;
+            color: rgba(232, 237, 233, 0.65);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover { color: var(--color-sage); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: rgba(232, 237, 233, 0.5);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem; right: 2rem;
+            width: 60px; height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s var(--transition);
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float svg { width: 28px; height: 28px; color: white; }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.7), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .nav-toggle { display: block; }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                flex-direction: column;
+                background: var(--color-cream);
+                padding: 2rem;
+                border-bottom: 1px solid rgba(10, 15, 12, 0.1);
+            }
+
+            section { padding: 5rem 1.5rem; }
+            .hero-content { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 3rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+
+        @media (max-width: 500px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#home" class="nav-logo">Singita<span>.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="https://wa.me/254736194051" class="nav-cta" target="_blank">Order Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <span class="label">Natural Care · Radiant You</span>
+                <h1>Skincare crafted by <em>nature</em>, made for you.</h1>
+                <p>Artisanal formulations rooted in ethically sourced botanicals. Every product is a ritual — gentle, effective, and thoughtfully made.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Shop Collection</a>
+                    <a href="https://wa.me/254736194051" class="btn btn-outline" target="_blank">Chat With Us</a>
+                </div>
+            </div>
+            <div class="hero-visual fade-in">
+                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop" alt="Singita Skincare Products">
+            </div>
+        </div>
+        <div class="hero-scroll">Scroll</div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-bg"></div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">Our Philosophy</span>
+                <h2>Rooted in nature. Guided by intention.</h2>
+                <p>We believe skincare should be simple, honest, and deeply nourishing. Every Singita product is crafted with care — from the sourcing of our ingredients to the final drop.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="about-icon">🌿</div>
+                    <h3>100% Natural</h3>
+                    <p>Ethically sourced botanical ingredients. No synthetic fillers, no harsh chemicals — just pure, plant-based goodness.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-icon">🐰</div>
+                    <h3>Cruelty-Free</h3>
+                    <p>Compassionate formulations, never tested on animals. Kind to your skin, kind to the earth, kind to all living beings.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-icon">✨</div>
+                    <h3>Clinically Thoughtful</h3>
+                    <p>Each formula is carefully balanced to deliver visible results — hydration, radiance, and long-term skin health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">The Collection</span>
+                <h2>Discover our skincare rituals</h2>
+                <p>Ten thoughtfully crafted products designed to nourish, protect, and reveal your skin's natural radiance.</p>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Banner -->
+    <section class="parallax-banner">
+        <div class="parallax-banner-bg"></div>
+        <div class="parallax-content fade-in">
+            <span class="label">Our Promise</span>
+            <h2>Your skin deserves ingredients you can trust.</h2>
+            <p>Every Singita product is made in small batches with love, care, and a deep respect for nature's wisdom.</p>
+            <a href="https://wa.me/254736194051" class="btn btn-primary" target="_blank">Order via WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">Get in Touch</span>
+                <h2>Let's start a conversation</h2>
+                <p>Questions about our products? Need skincare guidance? We're here to help — reach out anytime.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>We'd love to hear from you.</h3>
+                    <p>Whether you're looking for product recommendations, bulk orders, or just want to say hello — our team is ready to assist.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Nairobi, Kenya
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            +254 736 194 051
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            info@sonnysayisolutions.co.ke
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            WhatsApp Business
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/254736194051" class="btn btn-primary" target="_blank">Start a Chat</a>
+                </div>
+                <div class="contact-visual fade-in">
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=1200&auto=format&fit=crop" alt="Singita Skincare">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Singita<span>.</span></h3>
+                <p>Natural skincare crafted with intention. Ethically sourced, cruelty-free, and made for radiant skin.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://wa.me/254736194051" aria-label="WhatsApp" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#products">All Products</a></li>
+                    <li><a href="#products">Serums</a></li>
+                    <li><a href="#products">Moisturizers</a></li>
+                    <li><a href="#products">Cleansers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#about">Ingredients</a></li>
+                    <li><a href="#about">Sustainability</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#contact">FAQs</a></li>
+                    <li><a href="#contact">Shipping</a></li>
+                    <li><a href="#contact">Returns</a></li>
+                    <li><a href="https://wa.me/254736194051" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Singita Skincare. All rights reserved.</p>
+            <p>Crafted with care in Nairobi, Kenya.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254736194051" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <script>
+        // Products Data
+        const products = [
+            {
+                name: "Radiant Glow Serum",
+                category: "Facial Serum",
+                description: "A lightweight, fast-absorbing serum to brighten dull skin and deliver deep hydration for a luminous complexion.",
+                price: "KES 2,500",
+                badge: "Bestseller",
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Botanical Night Elixir",
+                category: "Night Treatment",
+                description: "A rich overnight blend that repairs, restores, and rejuvenates skin while you sleep. Wake up to softer, calmer skin.",
+                price: "KES 2,800",
+                badge: "New",
+                image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Hydrating Face Cream",
+                category: "Moisturizer",
+                description: "A deeply nourishing cream that locks in moisture all day. Perfect for dry and sensitive skin types.",
+                price: "KES 2,200",
+                badge: null,
+                image: "https://images.unsplash.com/photo-1570194065650-d99fb4b38b17?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Gentle Cleansing Oil",
+                category: "Cleanser",
+                description: "Melts away makeup, dirt, and impurities without stripping your skin. Leaves a soft, balanced finish.",
+                price: "KES 1,800",
+                badge: null,
+                image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Vitamin C Brightener",
+                category: "Serum",
+                description: "Powerful antioxidant serum that fades dark spots, evens skin tone, and boosts natural radiance.",
+                price: "KES 2,600",
+                badge: "Popular",
+                image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Restorative Face Balm",
+                category: "Treatment",
+                description: "An intensive balm for dry patches, irritation, and stressed skin. Soothes and protects on contact.",
+                price: "KES 2,000",
+                badge: null,
+                image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Clarifying Toner",
+                category: "Toner",
+                description: "A gentle, balancing toner that refines pores, controls excess oil, and preps skin for the next step.",
+                price: "KES 1,600",
+                badge: null,
+                image: "https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Nourishing Body Butter",
+                category: "Body Care",
+                description: "Whipped, rich body butter that melts into skin. Deeply moisturizes and leaves a subtle, natural scent.",
+                price: "KES 2,400",
+                badge: "Bestseller",
+                image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Rejuvenating Eye Cream",
+                category: "Eye Care",
+                description: "Targets puffiness, dark circles, and fine lines. A gentle, effective formula for the delicate eye area.",
+                price: "KES 2,100",
+                badge: null,
+                image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+                name: "Exfoliating Face Scrub",
+                category: "Exfoliator",
+                description: "A gentle, natural scrub that removes dead skin cells and reveals a smoother, brighter complexion.",
+                price: "KES 1,900",
+                badge: null,
+                image: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=800&auto=format&fit=crop"
+            }
+        ];
+
+        const WHATSAPP_NUMBER = "254736194051";
+
+        // Render Products
+        const productsGrid = document.getElementById('productsGrid');
+        products.forEach((product, index) => {
+            const message = encodeURIComponent(`Hi Singita! I'm interested in the ${product.name} (${product.price}). Could you share more details?`);
+            const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+            const card = document.createElement('div');
+            card.className = 'product-card fade-in';
+            card.style.transitionDelay = `${index * 0.05}s`;
+            card.innerHTML = `
+                <div class="product-image">
+                    ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">${product.category}</span>
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <div class="product-footer">
+                        <span class="product-price">${product.price}</span>
+                        <a href="${whatsappLink}" class="btn-whatsapp" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Order
+                        </a>
+                    </div>
+                </div>
+            `;
+            productsGrid.appendChild(card);
+        });
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById('scrollProgress').style.width = ((winScroll / height) * 100) + '%';
+        });
+
+        // Fade-in Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Mobile Nav Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
+        });
+
+        // Parallax effect on scroll (subtle)
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.querySelector('.hero-bg');
+            const aboutBg = document.querySelector('.about-bg');
+            const parallaxBg = document.querySelector('.parallax-banner-bg');
+
+            if (heroBg) heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+            if (aboutBg) {
+                const aboutOffset = document.getElementById('about').offsetTop;
+                aboutBg.style.transform = `translateY(${(scrolled - aboutOffset) * 0.2}px)`;
+            }
+            if (parallaxBg) {
+                const parallaxOffset = document.querySelector('.parallax-banner').offsetTop;
+                parallaxBg.style.transform = `translateY(${(scrolled - parallaxOffset) * 0.3}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
